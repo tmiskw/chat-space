@@ -27,7 +27,7 @@ message table
 
 |Column|type|Option|
 |------|----|------|
-|body|text|null: false|
+|body|text|
 |image|string|
 |group|references|foreign_key: true|
 |user|references|foreign_key: true|
