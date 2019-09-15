@@ -21,7 +21,6 @@ $(function(){
   var keyupStack = [];
   $("#user-search-field").on('keyup', function(){
     var input = $.trim($(this).val());
-    console.log(input)
     $("#user-search-result").empty();
     keyupStack.push(1);
     setTimeout(function(){
@@ -34,7 +33,6 @@ $(function(){
           dataType: 'json',
         })
         .done(function(data){
-          console.log(data);
           if (data.length !== 0) {
             data.forEach(function(user){
 
