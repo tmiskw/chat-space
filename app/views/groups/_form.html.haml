@@ -21,13 +21,17 @@
     .chat-group-form__field--left
       = f.label :チャットメンバー, class: 'chat-group-form__label'
     .chat-group-form__field--right
-      #chat-group-users
-        - group.group_users.each do |group_user|
-          #chat-group-user-22.chat-group-user.clearfix
-            = f.hidden_field :user_ids, value: group_user.user.id, multiple: true
-            %p.chat-group-user__name#current-member
-            = group_user.user.name
-            %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
+      = f.hidden_field :user_ids, value: current_user.id, multiple: true
+      .chat-group-users.current_user
+        = current_user.name
+      .chat-group-users.add_user
+        - @group.users.each do |user|
+          -unless user == current_user  
+            .chat-group-user.clearfix.js-chat-member
+              = f.hidden_field :user_ids, value: user.id, multiple: true
+              %p.chat-group-user__name
+                = user.name
+              %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
