@@ -42,7 +42,7 @@ $(function(){
          alert('error');
        })
        .always(function(){
-         $('.submit-btn').prop('disabled', false);
+         $('.form__submit').prop('disabled', false);
      });
 
     var reloadMessages = function () {
