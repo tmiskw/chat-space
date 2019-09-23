@@ -21,6 +21,9 @@
       .member {
         display: inline-block;
         padding-right: 5px;
+        &__name {
+          padding-right: 5px;
+        }
         }
       }
     }
